@@ -1,5 +1,5 @@
 {
   "dependencies": {
-    "react": "0.14.9"
+    "jest-cli": "15.0.1"
   }
 }

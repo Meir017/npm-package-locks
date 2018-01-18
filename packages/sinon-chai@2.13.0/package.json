@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "sinon-chai": "2.13.0"
+  }
+}

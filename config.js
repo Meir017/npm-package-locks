@@ -5,7 +5,6 @@ module.exports = {
     "request",
     "chalk",
     "async",
-    "express",
     "bluebird",
     "commander",
     "react",
