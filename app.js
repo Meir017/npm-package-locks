@@ -6,8 +6,8 @@ const rimraf = require("rimraf");
 const { npmModules, earliestVersion } = require("./config");
 
 (async function() {
-  if(!existsSync('./packages')) {
-    mkdirSync('./packages');
+  if (!existsSync("./packages")) {
+    mkdirSync("./packages");
   }
   for (const npmModule of npmModules) {
     const body = await rp({
@@ -17,6 +17,7 @@ const { npmModules, earliestVersion } = require("./config");
 
     for (const version in body.time) {
       if (["modified", "created"].includes(version)) continue;
+      if(version.toUpperCase() !== version) continue;
       if (new Date(body.time[version]) < earliestVersion) continue;
       console.log(`creating directory`, npmModule, version, body.time[version]);
       createDirectoryForVersion(npmModule, version);
@@ -34,6 +35,11 @@ function createDirectoryForVersion(name, version) {
       [name]: version
     }
   };
+  if (existsSync(`${directory}/package-lock.json`)) {
+    console.log(`skipping package ${name}@${version}...`);
+    return;
+  }
+  console.log(`processing package ${name}@${version}...`);
   writeFileSync(
     `${directory}/package.json`,
     JSON.stringify(packageJson, null, 2)
