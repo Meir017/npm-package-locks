@@ -1,12 +1,14 @@
 const rp = require("request-promise");
 const { writeFileSync, mkdirSync, existsSync } = require("fs");
 const { exec } = require("child_process");
-const rimraf = require('rimraf');
+const rimraf = require("rimraf");
 
-const npmModules = ["express", "lodash"];
-const earliestVersion = new Date("2016-01-01T00:00:00.000Z");
+const { npmModules, earliestVersion } = require("./config");
 
 (async function() {
+  if(!existsSync('./packages')) {
+    mkdirSync('./packages');
+  }
   for (const npmModule of npmModules) {
     const body = await rp({
       uri: `https://registry.npmjs.org/${npmModule}`,
@@ -37,8 +39,11 @@ function createDirectoryForVersion(name, version) {
     JSON.stringify(packageJson, null, 2)
   );
   exec("npm install", { cwd: directory }, (error, sdtout, sdterr) => {
-    if(error) {
-      console.error(`failed to install dependencies for ${name}@${version}`, error);
+    if (error) {
+      console.error(
+        `failed to install dependencies for ${name}@${version}`,
+        error
+      );
       return;
     }
     console.info(`installed dependencies for ${name}@${version}`);
