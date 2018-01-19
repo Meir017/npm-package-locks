@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "gulp-sourcemaps": "1.7.2"
+  }
+}

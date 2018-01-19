@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "gulp-eslint": "4.0.1"
+  }
+}
