@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "elasticsearch": "12.0.0"
+  }
+}
