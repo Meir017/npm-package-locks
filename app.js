@@ -25,11 +25,17 @@ const { npmModules, earliestVersion } = require("./config");
 })();
 
 function createDirectoryForVersion(name, version, time) {
-  const directory = `./packages/${name}@${version}`;
+  const baseDirectory = `./packages/${name}`;
+  const directory = `${baseDirectory}/${version}`;
+  if (!existsSync(baseDirectory)) {
+    mkdirSync(baseDirectory);
+    console.log(`creating directory`, name);
+  }
   if (!existsSync(directory)) {
     mkdirSync(directory);
-    console.log(`creating directory`, name, version, time);
+    console.log(`creating directory`, name, version);
   }
+
   const packageJson = {
     dependencies: {
       [name]: version

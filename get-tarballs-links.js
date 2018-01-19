@@ -1,13 +1,13 @@
 const fs = require("fs");
-const packages = fs.readdirSync("./packages");
-
 const tarballs = new Map();
 
-for (const package of packages) {
-  if (fs.existsSync(`./packages/${package}/package-lock.json`)) {
-    console.log(`processing package ${package}...`);
-    const packageLock = require(`./packages/${package}/package-lock.json`);
-    _enumerateDependencies(packageLock.dependencies);
+for (const package of fs.readdirSync("./packages")) {
+  for (const version of fs.readdirSync(`./packages/${package}`)) {
+    if (fs.existsSync(`./packages/${package}/${version}/package-lock.json`)) {
+      console.log(`processing package ${package} ${version} ...`);
+      const packageLock = require(`./packages/${package}/${version}/package-lock.json`);
+      _enumerateDependencies(packageLock.dependencies);
+    }
   }
 }
 
@@ -29,7 +29,7 @@ function _enumerateDependencies(dependencies) {
 }
 
 const results = [];
-tarballs.forEach((versions, name) => {  
+tarballs.forEach((versions, name) => {
   versions.forEach((version, url) => {
     results.push({ version, url });
   });

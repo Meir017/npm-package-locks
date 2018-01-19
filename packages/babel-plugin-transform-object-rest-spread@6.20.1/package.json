@@ -1,5 +1,0 @@
-{
-  "dependencies": {
-    "babel-plugin-transform-object-rest-spread": "6.20.1"
-  }
-}
