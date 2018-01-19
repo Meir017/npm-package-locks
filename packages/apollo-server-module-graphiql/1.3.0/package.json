@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "apollo-server-module-graphiql": "1.3.0"
+  }
+}

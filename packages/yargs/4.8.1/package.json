@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "yargs": "4.8.1"
+  }
+}

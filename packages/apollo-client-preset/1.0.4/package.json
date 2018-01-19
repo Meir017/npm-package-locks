@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "apollo-client-preset": "1.0.4"
+  }
+}

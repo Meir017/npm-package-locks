@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "gulp-rev": "8.1.0"
+  }
+}

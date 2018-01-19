@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "apollo-link": "0.0.2"
+  }
+}

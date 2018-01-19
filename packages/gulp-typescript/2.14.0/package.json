@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "gulp-typescript": "2.14.0"
+  }
+}

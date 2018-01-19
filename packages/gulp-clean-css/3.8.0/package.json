@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "gulp-clean-css": "3.8.0"
+  }
+}

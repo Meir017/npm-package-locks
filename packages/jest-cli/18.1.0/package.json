@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "jest-cli": "18.1.0"
+  }
+}

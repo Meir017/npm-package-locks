@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "apollo-codegen": "0.10.3"
+  }
+}
