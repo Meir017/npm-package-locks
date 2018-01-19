@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "winston-firehose": "1.0.8"
+  }
+}

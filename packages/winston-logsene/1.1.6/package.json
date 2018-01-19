@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "winston-logsene": "1.1.6"
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "karma-mocha-reporter": "2.2.5"
+  }
+}

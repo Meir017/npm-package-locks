@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "winston": "2.3.0"
+  }
+}

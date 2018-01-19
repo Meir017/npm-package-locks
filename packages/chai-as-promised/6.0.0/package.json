@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "chai-as-promised": "6.0.0"
+  }
+}

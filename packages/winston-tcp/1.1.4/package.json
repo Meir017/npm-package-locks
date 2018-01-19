@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "winston-tcp": "1.1.4"
+  }
+}
