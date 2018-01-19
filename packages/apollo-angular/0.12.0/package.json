@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "apollo-angular": "0.12.0"
+  }
+}
