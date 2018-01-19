@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "my-sql": "1.1.10"
+  }
+}

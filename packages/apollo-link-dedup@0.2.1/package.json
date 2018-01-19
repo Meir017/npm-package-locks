@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "apollo-link-dedup": "0.2.1"
+  }
+}
