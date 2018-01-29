@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "verdaccio": "2.7.1"
+  }
+}
