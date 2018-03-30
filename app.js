@@ -61,7 +61,7 @@ function createDirectoryForVersion(name, version, time) {
   function npmInstall(sync) {
     if (sync) {
       try {
-        execSync("npm install", { cwd: directory });
+        execSync("npm install", { cwd: directory, stdio: [0,1,2] });
         console.info(`installed dependencies for ${name}@${version}`);
         rimraf.sync(`${directory}/node_modules`);
       } catch (error) {
