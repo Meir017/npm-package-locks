@@ -11,7 +11,7 @@ const { npmModules, earliestVersion } = require("./config");
   }
   for (const npmModule of npmModules) {
     const body = await rp({
-      uri: `https://registry.npmjs.org/${npmModule}`,
+      uri: `https://registry.npmjs.org/${npmModule.replace('/', '%2F')}`,
       json: true
     });
 
@@ -24,17 +24,22 @@ const { npmModules, earliestVersion } = require("./config");
   }
 })();
 
+function ensureDirectoryExists(directory) {
+  if (!existsSync(directory)) {
+    mkdirSync(directory);
+    console.log(`creating directory`, directory);
+  }
+}
+
 function createDirectoryForVersion(name, version, time) {
   const baseDirectory = `./packages/${name}`;
   const directory = `${baseDirectory}/${version}`;
-  if (!existsSync(baseDirectory)) {
-    mkdirSync(baseDirectory);
-    console.log(`creating directory`, name);
+  if(name.startsWith('@')) {
+    const [scope] = name.split('/');
+    ensureDirectoryExists(`./packages/${scope}`);    
   }
-  if (!existsSync(directory)) {
-    mkdirSync(directory);
-    console.log(`creating directory`, name, version);
-  }
+  ensureDirectoryExists(baseDirectory);
+  ensureDirectoryExists(directory);
 
   const packageJson = {
     dependencies: {
